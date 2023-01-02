@@ -1,0 +1,377 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
+<div>
+  <h1>Resume Builder</h1>
+</div>
+<form>
+  <mat-stepper [linear]="isLinear" #stepper>
+    <mat-step [stepControl]="personalDetails" errorMessage="adsfdas">
+      <div style="text-align: center;background-color: rgb(243, 249, 249);">
+        <form [formGroup]="personalDetails" #user="ngForm">
+          <ng-template matStepLabel>Personal Details</ng-template>
+          <!-- <button (click)="onButtonClick()">click</button>
+        <p>{{count}}</p>
+        <app-child-component></app-child-component> -->
+
+          <br>
+
+          <!-- <mat-form-field appearance="fill"> -->
+          <mat-label>Profile Picture</mat-label>
+          <br>
+          <input class="ng-hide" id="input-file-id" formControlName="profilePicture" name="profilePicture" ngModel
+            type="file" (change)="load($event)" />
+          <img [src]="imageUrl" height="200">
+          <br>
+          <!-- </mat-form-field> -->
+          <mat-form-field appearance="fill">
+            <mat-label>First Name</mat-label>
+            <input matInput placeholder="Enter your First name" formControlName="first_name" name="first_name" ngModel
+              required>
+          </mat-form-field>
+          <!-- <mdb-form-control>
+          <input mdbInput type="text" id="form1" class="form-control" />
+          <label mdbLabel class="form-label" for="form1">Example label</label>
+        </mdb-form-control> -->
+          <br>
+          <mat-form-field appearance="fill">
+            <mat-label>Last Name</mat-label>
+            <input matInput placeholder="Enter your Last name" formControlName="last_name" name="last_name" ngModel
+              required>
+          </mat-form-field>
+          <br>
+          <mat-form-field appearance="fill">
+            <mat-label>Email</mat-label>
+            <input matInput placeholder="Enter your Email" formControlName="email" name="email" ngModel required>
+          </mat-form-field>
+          <br>
+          <mat-form-field appearance="fill">
+            <mat-label>Phone Number</mat-label>
+            <input matInput placeholder="Enter your Phone Number" formControlName="mobile_no" name="mobile_no" ngModel
+              required>
+          </mat-form-field>
+          <br>
+          <mat-form-field appearance="fill">
+            <mat-label>Address</mat-label>
+            <input matInput placeholder="Enter your Address" formControlName="address" name="address" ngModel required>
+          </mat-form-field>
+          <div>
+            <button mat-raised-button color="primary" class="my-class" matStepperNext
+              (click)="sendPersonal(user.value)">Next</button>
+          </div>
+        </form>
+      </div>
+    </mat-step>
+
+    <mat-step [stepControl]="secondFormGroup" label="Academic Details">
+      <div style="text-align: center;background-color: rgb(243, 249, 249);">
+        <form [formGroup]="secondFormGroup" #user1="ngForm">
+          <mat-form-field appearance="fill">
+            <mat-label>SSLC</mat-label>
+            <input matInput formControlName="tenth_school_name" placeholder="Enter SSLC school name"
+              name="tenth_school_name" ngModel required>
+          </mat-form-field>
+          <br>
+          <mat-form-field appearance="fill">
+            <mat-label>SSLC Start Year</mat-label>
+            <input matInput formControlName="tenth_start_year" placeholder="Enter SSLC start year"
+              name="tenth_start_year" ngModel required>
+          </mat-form-field>
+          <br>
+          <mat-form-field appearance="fill">
+            <mat-label>SSLC End Year</mat-label>
+            <input matInput formControlName="tenth_end_year" placeholder="Enter SSLC end year" name="tenth_end_year"
+              ngModel required>
+          </mat-form-field>
+          <br>
+          <mat-form-field appearance="fill">
+            <mat-label>SSLC Percentage</mat-label>
+            <input matInput formControlName="sslc_percent" placeholder="Enter SSLC Percentage" name="sslc_percent"
+              ngModel required>
+          </mat-form-field>
+          <br>
+          <mat-form-field appearance="fill">
+            <mat-label>HSC</mat-label>
+            <input matInput formControlName="twelfth_school_name" placeholder="Enter HSC school name"
+              name="twelfth_school_name" ngModel required>
+          </mat-form-field>
+          <br>
+          <mat-form-field appearance="fill">
+            <mat-label>HSC Start Year</mat-label>
+            <input matInput formControlName="twelfth_start_year" placeholder="Enter HSC start year"
+              name="twelfth_start_year" ngModel required>
+          </mat-form-field>
+          <br>
+          <mat-form-field appearance="fill">
+            <mat-label>HSC End Year</mat-label>
+            <input matInput formControlName="twelfth_end_year" placeholder="Enter HSC end year" name="twelfth_end_year"
+              ngModel required>
+          </mat-form-field>
+          <br>
+          <mat-form-field appearance="fill">
+            <mat-label>HSC Percentage</mat-label>
+            <input matInput formControlName="hsc_percent" placeholder="Enter HSC Percentage" name="hsc_percent" ngModel
+              required>
+          </mat-form-field>
+          <br>
+          <mat-form-field appearance="fill">
+            <mat-label>College</mat-label>
+            <input matInput formControlName="college" placeholder="Enter College name" name="college" ngModel required>
+          </mat-form-field>
+          <br>
+          <mat-form-field appearance="fill">
+            <mat-label>College Degree</mat-label>
+            <input matInput formControlName="college_degree" placeholder="Enter College Degree" name="college_degree"
+              ngModel required>
+          </mat-form-field>
+          <br>
+          <mat-form-field appearance="fill">
+            <mat-label>College Branch</mat-label>
+            <input matInput formControlName="college_branch" placeholder="Enter College Branch" name="college_branch"
+              ngModel required>
+          </mat-form-field>
+          <br>
+          <mat-form-field appearance="fill">
+            <mat-label>College Start Year</mat-label>
+            <input matInput formControlName="college_start_year" placeholder="Enter College start year"
+              name="college_start_year" ngModel required>
+          </mat-form-field>
+          <br>
+          <mat-form-field appearance="fill">
+            <mat-label>College End Year</mat-label>
+            <input matInput formControlName="college_end_year" placeholder="Enter College end year"
+              name="college_end_year" ngModel required>
+          </mat-form-field>
+          <br>
+          <mat-form-field appearance="fill">
+            <mat-label>College Percentage</mat-label>
+            <input matInput formControlName="college_percent" placeholder="Enter College Percentage"
+              name="college_percent" ngModel required>
+          </mat-form-field>
+          <div>
+            <button mat-raised-button color="primary" class="my-class" matStepperPrevious>Back</button>
+            <button mat-raised-button color="primary" class="my-class" matStepperNext
+              (click)="sendAcademic(user1.value)">Next</button>
+          </div>
+        </form>
+      </div>
+    </mat-step>
+
+    <mat-step [stepControl]="skillsDetails">
+      <div style="text-align: center;background-color: rgb(243, 249, 249);">
+        <form [formGroup]="skillsDetails" #user2="ngForm">
+          <ng-template matStepLabel>Skill Details</ng-template>
+          <mat-form-field class="example-chip-list" appearance="fill">
+            <mat-label>Skills</mat-label>
+            <mat-chip-list #skillsArray aria-label="Skill selection">
+              <mat-chip *ngFor="let skill of skillsArr" (removed)="removeSkill(skill)">
+                {{skill}}
+                <button matChipRemove>
+                  <mat-icon>cancel</mat-icon>
+                </button>
+              </mat-chip>
+              <input placeholder="New skill..." [matChipInputFor]="skillsArray" formControlName="skill"
+                [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlur"
+                (matChipInputTokenEnd)="addSkill($event)">
+            </mat-chip-list>
+          </mat-form-field>
+          <br>
+          <div>
+            <button mat-raised-button color="primary" class="my-class" matStepperPrevious>Back</button>
+            <button mat-raised-button color="primary" class="my-class" matStepperNext>Next</button>
+          </div>
+        </form>
+      </div>
+    </mat-step>
+
+    <mat-step [stepControl]="areasOfIntrest">
+      <div style="text-align: center;background-color: rgb(243, 249, 249);">
+        <form [formGroup]="areasOfIntrest" #intrest="ngForm">
+          <ng-template matStepLabel>Areas Of Intrest</ng-template>
+          <mat-form-field class="example-chip-list" appearance="fill">
+            <mat-label>Areas Of Intrest</mat-label>
+            <mat-chip-list #areasOfIntrestArray aria-label="Intrest selection">
+              <mat-chip *ngFor="let intrest of areasOfIntrestArr" (removed)="removeIntrest(intrest)">
+                {{intrest}}
+                <button matChipRemove>
+                  <mat-icon>cancel</mat-icon>
+                </button>
+              </mat-chip>
+              <input placeholder="New Areas of Intrest..." [matChipInputFor]="areasOfIntrestArray"
+                formControlName="intrest" [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                [matChipInputAddOnBlur]="addOnBlur" (matChipInputTokenEnd)="addIntrest($event)">
+            </mat-chip-list>
+          </mat-form-field>
+          <br>
+          <div>
+            <button mat-raised-button color="primary" class="my-class" matStepperPrevious>Back</button>
+            <button mat-raised-button color="primary" class="my-class" matStepperNext>Next</button>
+          </div>
+        </form>
+      </div>
+    </mat-step>
+
+
+    <mat-step [stepControl]="languagesKnown">
+      <div style="text-align: center;background-color: rgb(243, 249, 249);">
+        <form [formGroup]="languagesKnown" #language="ngForm">
+          <ng-template matStepLabel>Languages Known</ng-template>
+          <mat-form-field class="example-chip-list" appearance="fill">
+            <mat-label>Languages Known</mat-label>
+            <mat-chip-list #languagesKnownArray aria-label="Language selection">
+              <mat-chip *ngFor="let language of languagesKnownArr" (removed)="removeLanguage(language)">
+                {{language}}
+                <button matChipRemove>
+                  <mat-icon>cancel</mat-icon>
+                </button>
+              </mat-chip>
+              <input placeholder="New language..." [matChipInputFor]="languagesKnownArray" formControlName="language"
+                [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlur"
+                (matChipInputTokenEnd)="addLanguage($event)">
+            </mat-chip-list>
+          </mat-form-field>
+          <br>
+          <div>
+            <button mat-raised-button color="primary" class="my-class" matStepperPrevious>Back</button>
+            <button mat-raised-button color="primary" class="my-class" matStepperNext>Next</button>
+          </div>
+        </form>
+      </div>
+    </mat-step>
+
+    <mat-step [stepControl]="projectDetails">
+      <div style="text-align: center;background-color: rgb(243, 249, 249);">
+        <form [formGroup]="projectDetails" #user3="ngForm">
+          <mat-form-field class="example-chip-list" appearance="fill">
+            <mat-label>Project</mat-label>
+            <mat-chip-list #projectsArray aria-label="project selection">
+              <mat-chip *ngFor="let project of projectsArr" (removed)="removeProject(project)">
+                {{project}}
+                <button matChipRemove>
+                  <mat-icon>cancel</mat-icon>
+                </button>
+              </mat-chip>
+              <input placeholder="New project..." [matChipInputFor]="projectsArray" formControlName="project"
+                [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlur"
+                (matChipInputTokenEnd)="addProject($event)">
+            </mat-chip-list>
+          </mat-form-field>
+          <ng-template matStepLabel>Project Details</ng-template>
+          <br>
+          <div>
+            <button mat-raised-button color="primary" class="my-class" matStepperPrevious>Back</button>
+            <button mat-raised-button color="primary" class="my-class" matStepperNext>Next</button>
+            <!-- <div mat-dialog-actions align="end">
+              <button mat-raised-button color="primary" class="my-class" (click)="addProject()">Add more</button>
+            </div> -->
+          </div>
+        </form>
+      </div>
+    </mat-step>
+
+    <mat-step [stepControl]="certificationDetails">
+      <div style="text-align: center;background-color: rgb(243, 249, 249);">
+        <form [formGroup]="certificationDetails" #user4="ngForm">
+          <mat-form-field class="example-chip-list" appearance="fill">
+            <mat-label>Certification</mat-label>
+            <mat-chip-list #certificationsArray aria-label="Certification selection">
+              <mat-chip *ngFor="let certification of certificationsArr" (removed)="removeCertification(certification)">
+                {{certification}}
+                <button matChipRemove>
+                  <mat-icon>cancel</mat-icon>
+                </button>
+              </mat-chip>
+              <input placeholder="New certification..." [matChipInputFor]="certificationsArray"
+                formControlName="certification" [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                [matChipInputAddOnBlur]="addOnBlur" (matChipInputTokenEnd)="addCertification($event)">
+            </mat-chip-list>
+          </mat-form-field>
+          <ng-template matStepLabel>Certification Details</ng-template>
+          <!-- <div *ngFor="let certification of certifications let i = index;">
+            <mat-form-field appearance="fill">
+              <mat-label>Certification</mat-label>
+              <input matInput placeholder="Enter your Certification" formControlName="certification"
+                name="certification" ngModel required>
+              <div mat-dialog-actions align="end">
+                <button mat-raised-button color="primary" class="my-class" style="width : 10em;"
+                  (click)="removeCertification(i)">Remove</button>
+              </div>
+            </mat-form-field>
+
+          </div> -->
+          <br>
+          <div>
+            <button mat-raised-button color="primary" class="my-class" matStepperPrevious>Back</button>
+            <button mat-raised-button color="primary" class="my-class" matStepperNext>Next</button>
+            <!-- <div mat-dialog-actions align="end">
+              <button mat-raised-button color="primary" class="my-class" (click)="addCertification()">Add more</button>
+            </div> -->
+          </div>
+        </form>
+      </div>
+    </mat-step>
+
+    <mat-step [stepControl]="careerObjective">
+      <div style="text-align: center;background-color: rgb(243, 249, 249);">
+        <form [formGroup]="careerObjective" #career="ngForm">
+          <ng-template matStepLabel>Career Objective Details</ng-template>
+          <mat-form-field appearance="fill">
+            <mat-label>Career Objective</mat-label>
+            <input matInput placeholder="Enter your Career Objective" formControlName="career_objective"
+              name="career_objective" ngModel required>
+          </mat-form-field>
+          <br>
+          <div>
+            <button mat-raised-button color="primary" class="my-class" matStepperPrevious>Back</button>
+            <button mat-raised-button color="primary" class="my-class" matStepperNext (click)="sendCareer(career.value)"
+              (click)="setDetails()">Next</button>
+          </div>
+        </form>
+      </div>
+    </mat-step>
+
+    <mat-step [stepControl]="profileDetails">
+      <div style="text-align: center;background-color: rgb(243, 249, 249);">
+        <form [formGroup]="profileDetails" #user5="ngForm">
+          <ng-template matStepLabel>Profile Details</ng-template>
+          <mat-form-field appearance="fill">
+            <mat-label>LinkedIn profile</mat-label>
+            <input matInput placeholder="Enter your LinkedIn profile" formControlName="linkedIn_profile"
+              name="linkedIn_profile" ngModel required>
+          </mat-form-field>
+          <br>
+          <mat-form-field appearance="fill">
+            <mat-label>HackerRank profile</mat-label>
+            <input matInput placeholder="Enter your HackerRank profile" formControlName="hackerRank_profile"
+              name="hackerRank_profile" ngModel required>
+          </mat-form-field>
+          <br>
+          <mat-form-field appearance="fill">
+            <mat-label>GitHub profile</mat-label>
+            <input matInput placeholder="Enter your GitHub profile" formControlName="gitHub_profile"
+              name="gitHub_profile" ngModel required>
+          </mat-form-field>
+          <br>
+          <div>
+            <button mat-raised-button color="primary" class="my-class" matStepperPrevious>Back</button>
+            <button mat-raised-button color="primary" class="my-class" matStepperNext (click)="sendProfile(user5.value)"
+              (click)="setDetails()">Next</button>
+          </div>
+        </form>
+      </div>
+    </mat-step>
+
+    <mat-step>
+      <div style="text-align: center;background-color: rgb(243, 249, 249);">
+        <ng-template matStepLabel>Done</ng-template>
+        <p>You are now done.</p>
+        <div>
+          <button mat-raised-button color="primary" class="my-class" matStepperPrevious>Back</button>
+          <!-- <button mat-button (click)="stepper.reset()">Reset</button> -->
+          <button type="button" mat-raised-button color="primary" class="my-class"
+            (click)="generatePDF()">Download</button>
+        </div>
+        <div class="col-auto my-1">
+        </div>
+      </div>
+    </mat-step>
+  </mat-stepper>
+</form>

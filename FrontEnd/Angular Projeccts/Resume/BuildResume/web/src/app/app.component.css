@@ -1,0 +1,32 @@
+.mat-stepper-horizontal {
+    margin-top: 8px;
+}
+
+.small {
+    size: 5px
+}
+
+.mat-form-field {
+    margin-top: 16px;
+}
+
+/* mat-raised-button {
+    width: 50px;
+   } */
+
+.my-class {
+    width: 100px !important;
+    min-width: unset !important;
+}
+
+/* .skillPos {
+    ;
+} */
+
+button {
+    margin-right: 1vw;
+    font-size: 15px;
+    line-height: 40px;
+    height: auto;
+    width: 1px;
+}
