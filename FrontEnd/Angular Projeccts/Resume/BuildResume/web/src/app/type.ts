@@ -4,7 +4,6 @@ type ts = {
     email: string | null | undefined;
     mobile_no: string  | null | undefined;
     address: string | null | undefined;
-    // personal_details: PersonalDetails[],
     tenth_school_name: string | null | undefined;
     tenth_start_year: string | null | undefined;
     tenth_end_year: string | null | undefined;
@@ -19,7 +18,6 @@ type ts = {
     college_start_year: string | null | undefined;
     college_end_year: string | null | undefined;
     college_percent: string  | null | undefined;
-    // skills: any[];
     skills: string[];
     areas_of_interest: string[];
     languages_known: string[];

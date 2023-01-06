@@ -8,29 +8,20 @@
       <div style="text-align: center;background-color: rgb(243, 249, 249);">
         <form [formGroup]="personalDetails" #user="ngForm">
           <ng-template matStepLabel>Personal Details</ng-template>
-          <!-- <button (click)="onButtonClick()">click</button>
-        <p>{{count}}</p>
-        <app-child-component></app-child-component> -->
-
           <br>
-
           <!-- <mat-form-field appearance="fill"> -->
-          <mat-label>Profile Picture</mat-label>
-          <br>
-          <input class="ng-hide" id="input-file-id" formControlName="profilePicture" name="profilePicture" ngModel
-            type="file" (change)="load($event)" />
-          <img [src]="imageUrl" height="200">
-          <br>
+            <mat-label>Profile Picture</mat-label>
+            <br>
+            <input class="ng-hide" id="input-file-id" formControlName="profilePicture" name="profilePicture" ngModel
+              type="file" (change)="load($event)" />
+            <img [src]="imageUrl" height="200">
           <!-- </mat-form-field> -->
+          <br>
           <mat-form-field appearance="fill">
             <mat-label>First Name</mat-label>
             <input matInput placeholder="Enter your First name" formControlName="first_name" name="first_name" ngModel
               required>
           </mat-form-field>
-          <!-- <mdb-form-control>
-          <input mdbInput type="text" id="form1" class="form-control" />
-          <label mdbLabel class="form-label" for="form1">Example label</label>
-        </mdb-form-control> -->
           <br>
           <mat-form-field appearance="fill">
             <mat-label>Last Name</mat-label>
@@ -259,9 +250,6 @@
           <div>
             <button mat-raised-button color="primary" class="my-class" matStepperPrevious>Back</button>
             <button mat-raised-button color="primary" class="my-class" matStepperNext>Next</button>
-            <!-- <div mat-dialog-actions align="end">
-              <button mat-raised-button color="primary" class="my-class" (click)="addProject()">Add more</button>
-            </div> -->
           </div>
         </form>
       </div>
@@ -285,25 +273,10 @@
             </mat-chip-list>
           </mat-form-field>
           <ng-template matStepLabel>Certification Details</ng-template>
-          <!-- <div *ngFor="let certification of certifications let i = index;">
-            <mat-form-field appearance="fill">
-              <mat-label>Certification</mat-label>
-              <input matInput placeholder="Enter your Certification" formControlName="certification"
-                name="certification" ngModel required>
-              <div mat-dialog-actions align="end">
-                <button mat-raised-button color="primary" class="my-class" style="width : 10em;"
-                  (click)="removeCertification(i)">Remove</button>
-              </div>
-            </mat-form-field>
-
-          </div> -->
           <br>
           <div>
             <button mat-raised-button color="primary" class="my-class" matStepperPrevious>Back</button>
             <button mat-raised-button color="primary" class="my-class" matStepperNext>Next</button>
-            <!-- <div mat-dialog-actions align="end">
-              <button mat-raised-button color="primary" class="my-class" (click)="addCertification()">Add more</button>
-            </div> -->
           </div>
         </form>
       </div>
@@ -365,7 +338,6 @@
         <p>You are now done.</p>
         <div>
           <button mat-raised-button color="primary" class="my-class" matStepperPrevious>Back</button>
-          <!-- <button mat-button (click)="stepper.reset()">Reset</button> -->
           <button type="button" mat-raised-button color="primary" class="my-class"
             (click)="generatePDF()">Download</button>
         </div>

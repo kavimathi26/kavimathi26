@@ -1,10 +1,8 @@
 import { jsPDF } from "jspdf";
 import { Component, OnInit, ViewChild } from '@angular/core';
-// import { FormBuilder, Validators } from '@angular/forms';
 import { COMMA, ENTER, I } from '@angular/cdk/keycodes';
 import { Resume } from "./resume.model";
 import { Subscription } from 'rxjs';
-// import { CountService } from 'src/service/count-service';
 import { Router } from '@angular/router';
 import { FormBuilder, Validators } from '@angular/forms';
 import { MatChipInputEvent } from '@angular/material/chips';
@@ -32,14 +30,7 @@ export class AppComponent implements OnInit {
   countItem: Subscription = new Subscription;
   title = 'BuildResume';
   constructor(private _formBuilder: FormBuilder, private fetch: DetailsService, private route: Router) { }
-  // ngOnInit(): void {
-  //   throw new Error("Method not implemented.");
-  // }
-  ngOnInit() {
-    // this.countService.currentValue.subscribe(value => {
-    //   this.count = value;
-    // })
-  }
+  ngOnInit() {  }
   
   personalDetails = this._formBuilder.group({
     first_name: ['', Validators.required],
@@ -103,10 +94,6 @@ export class AppComponent implements OnInit {
     this.detailService.email = this.personalDetails.value.email;
     this.detailService.address = this.personalDetails.value.address;
     this.detailService.profile_picture = this.personalDetails.value.profilePicture;
-
-    // const temp = this.personalDetails.value.birthday;
-    // const bday: Date = new Date(this.personalDetails.value.birthday);
-    // console.log(bday);
 
     this.detailService.tenth_school_name = this.secondFormGroup.value.tenth_school_name;
     this.detailService.sslc_percent = this.secondFormGroup.value.sslc_percent;
@@ -361,9 +348,7 @@ export class AppComponent implements OnInit {
     doc.rect(0, 0, 500, 500, 'F');
     doc.setFillColor(255, 255, 255);
     doc.rect(10, 10, 90, 280, 'F');
-    // doc.rect(10, 10, 150, 160, "F");
     doc.setFont("times");
-    // doc.setFontType("bold");
     doc.setTextColor(0, 0, 0);
     doc.setFontSize(14);
     let nameSpace = left;
@@ -546,7 +531,6 @@ export class AppComponent implements OnInit {
     let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
     let yyyy = today.getFullYear();
     let x = dd + '/' + mm + '/' + yyyy;
-    // document.write(x);
     doc.text(`Date: ${x}`, borderStartLeft + 108, borderEndLeft + 195);
     doc.text(`Place: ${this.resumeDetails.address}`, borderStartLeft + 148, borderEndLeft + 195);
     doc.setTextColor(0, 0, 0);

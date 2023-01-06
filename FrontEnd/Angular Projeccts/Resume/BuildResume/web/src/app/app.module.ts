@@ -10,15 +10,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatNativeDateModule } from '@angular/material/core';
 import { HttpClientModule } from '@angular/common/http';
 import {MatButtonModule} from '@angular/material/button';
-// import { CountService } from 'src/service/count-service';
-// import { ChildComponentComponent } from './child-component/child-component.component';
-// import { Child2Component } from './child2/child2.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    // ChildComponentComponent,
-    // Child2Component
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +29,6 @@ import {MatButtonModule} from '@angular/material/button';
     MatButtonModule
 
   ],
-  // providers: [CountService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
