@@ -1,0 +1,43 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
+
+
+<form #user="ngForm" class="form">
+    <div class="form-column align-items-center">
+        <div class="col-sm-3 my-1">
+            <label class="sr-only" for="inlineFormInputId">User ID</label>
+            <input type="text" class="form-control"  placeholder="Enter User ID" name="user_id" [(ngModel)]="employee.user_id">
+        </div>
+        <div class="col-sm-3 my-1">
+            <label class="sr-only" for="inlineFormInputName">Name</label>
+            <input type="text" class="form-control" placeholder="Enter Name" name="name" [(ngModel)]="employee.name">
+        </div>
+        <div class="col-sm-3 my-1">
+            <label class="sr-only" for="inlineFormInputEmail">Email</label>
+            <input type="text" class="form-control" placeholder="Enter Email" name="email" [(ngModel)]="employee.email">
+        </div>
+        <div class="col-sm-3 my-1">
+            <label class="sr-only" for="inlineFormInputJob">Job Title</label>
+            <input type="text" class="form-control" placeholder="Enter Job Title" name="job_title" [(ngModel)]="employee.job_title">
+        </div>
+        <div class="col-auto my-1">
+            <button type="button" class="btn btn-secondary" (click)="backToMainPage()">BACK</button>
+        </div>
+        <div class="col-auto my-1">
+            <button type="button" class="btn btn-info" (click)="send(user.value,user.value)" >Submit</button>
+        </div>
+        <div>
+
+        </div>
+    </div>
+</form>

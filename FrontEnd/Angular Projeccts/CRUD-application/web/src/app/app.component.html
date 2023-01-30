@@ -1,0 +1,48 @@
+<!-- <div class="container">
+  <h2>Employee Details</h2>
+  <br>
+  <table class="table table-striped table-bordered">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Job Title</th>
+        <th>ACTIONS</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let employee of employees | paginate: { itemsPerPage: count, currentPage: p}">
+        <td>{{ employee.user_id }}</td>
+        <td>{{ employee.name }}</td>
+        <td>{{ employee.email }}</td>
+        <td>{{ employee.job_title }}</td>
+        <td>
+          <button class="btn edit-button" (click)="editUser(employee.user_id,employee)"
+            routerLink="update">EDIT</button> -->
+        <!-- </td>
+        <td> -->
+        <!-- <button class="btn delete-button" (click)="deleteUser(employee.user_id)">DELETE</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="col-auto my-1">
+  <button class="btn btn-primary" routerLink="add" id="create">Create</button>
+</div> -->
+
+<!-- <div class="col-auto my-1">
+  <button class="btn btn-primary" routerLink="add" id="update">Update</button>
+</div> -->
+
+<!-- <div class="col-auto my-1">
+  <button class="btn btn-primary" routerLink="/add" id="delete">Delete</button>
+</div> -->
+
+<!-- <div class="pagination">
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+</div> -->
+<!-- <span routerLink="employees"></span> -->
+<router-outlet></router-outlet>

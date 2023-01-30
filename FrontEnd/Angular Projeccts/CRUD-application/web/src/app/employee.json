@@ -1,0 +1,32 @@
+[
+    {
+        "userTd": "1001",
+        "name": "kavi",
+        "email": "kavi@gmail.com",
+        "jobTitle": "Developer"
+    },
+    {
+        "userTd": "1002",
+        "name": "Aji",
+        "email": "aji@gmail.com",
+        "jobTitle": "Investment Banking"
+    },
+    {
+        "userTd": "1003",
+        "name": "Jai",
+        "email": "jai@gmail.com",
+        "jobTitle": "Tester QA"
+    },
+    {
+        "userTd": "1004",
+        "name": "Nava",
+        "email": "nava@gmail.com",
+        "jobTitle": "Developer"
+    },
+    {
+        "userTd": "1005",
+        "name": "Saras",
+        "email": "saras@gmail.com",
+        "jobTitle": "Tester"
+    }
+]
